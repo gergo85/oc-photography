@@ -13,7 +13,7 @@ class Plugin extends PluginBase
             'description' => 'indikator.photography::lang.plugin.description',
             'author'      => 'indikator.photography::lang.plugin.author',
             'icon'        => 'icon-picture-o',
-            'homepage'    => 'http://www.indikator.hu'
+            'homepage'    => 'https://github.com/gergo85/oc-photography'
         ];
     }
 
