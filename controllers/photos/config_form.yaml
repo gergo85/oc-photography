@@ -1,0 +1,17 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+name: indikator.photography::lang.title.photos
+form: ~/plugins/indikator/photography/models/photos/fields.yaml
+
+modelClass: Indikator\Photography\Models\Photos
+defaultRedirect: indikator/photography/photos
+
+create:
+    redirect: indikator/photography/photos/update/:id
+    redirectClose: indikator/photography/photos
+
+update:
+    redirect: indikator/photography/photos/update/:id
+    redirectClose: indikator/photography/photos

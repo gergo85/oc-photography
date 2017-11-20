@@ -1,0 +1,70 @@
+# ===================================
+#  Column Definitions
+# ===================================
+
+columns:
+
+    id:
+        label: indikator.photography::lang.form.id
+        invisible: true
+
+    image:
+        label: indikator.photography::lang.form.image
+        sortable: false
+        clickable: false
+        invisible: true
+        type: partial
+        path: ~/plugins/indikator/photography/models/equipment/_image.htm  
+
+    brand:
+        label: indikator.photography::lang.form.brand
+        searchable: true
+
+    name:
+        label: indikator.photography::lang.form.name
+        searchable: true
+
+    purchased:
+        label: indikator.photography::lang.form.purchased
+        searchable: true
+
+    price:
+        label: indikator.photography::lang.form.price
+        searchable: true
+
+    org_price:
+        label: indikator.photography::lang.form.org_price
+        searchable: true
+        invisible: true
+
+    comment:
+        label: indikator.photography::lang.form.comment
+        searchable: true
+        invisible: true
+
+    sort_order:
+        label: indikator.photography::lang.form.sort_order
+        searchable: true
+        invisible: true
+
+    featured:
+        label: indikator.photography::lang.form.featured
+        searchable: true
+        type: photo_featured
+
+    status:
+        label: indikator.photography::lang.form.status
+        sortable: false
+        type: photo_status
+
+    created_at:
+        label: indikator.photography::lang.form.created
+        searchable: true
+        invisible: true
+        type: datetime
+
+    updated_at:
+        label: indikator.photography::lang.form.updated
+        searchable: true
+        invisible: true
+        type: datetime

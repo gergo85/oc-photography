@@ -1,0 +1,17 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+name: indikator.photography::lang.title.categories
+form: ~/plugins/indikator/photography/models/categories/fields.yaml
+
+modelClass: Indikator\Photography\Models\Categories
+defaultRedirect: indikator/photography/categories
+
+create:
+    redirect: indikator/photography/categories/update/:id
+    redirectClose: indikator/photography/categories
+
+update:
+    redirect: indikator/photography/categories/update/:id
+    redirectClose: indikator/photography/categories

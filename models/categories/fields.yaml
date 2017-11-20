@@ -1,0 +1,57 @@
+# ===================================
+#  Field Definitions
+# ===================================
+
+fields:
+
+    name:
+        label: indikator.photography::lang.form.name
+        required: true
+        span: auto
+
+    slug:
+        label: indikator.photography::lang.form.slug
+        required: true
+        preset: name
+        span: auto
+
+tabs:
+    fields:
+
+        summary:
+            tab: indikator.photography::lang.form.summary
+            type: richeditor
+            size: large
+
+        content:
+            tab: indikator.photography::lang.form.content
+            type: richeditor
+            size: giant
+
+secondaryTabs:
+    fields:
+
+        image:
+            label: indikator.photography::lang.form.image
+            type: mediafinder
+            mode: image
+
+        status:
+            label: indikator.photography::lang.form.status
+            required: true
+            type: radio
+            options:
+                1: indikator.photography::lang.button.active
+                2: indikator.photography::lang.button.inactive
+            default: 1
+            span: auto
+
+        featured:
+            label: indikator.photography::lang.form.featured
+            required: true
+            type: radio
+            options:
+                1: indikator.photography::lang.form.yes
+                2: indikator.photography::lang.form.no
+            default: 2
+            span: auto

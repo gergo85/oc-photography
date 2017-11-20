@@ -1,0 +1,49 @@
+# ===================================
+# Filter Scope Definitions
+# ===================================
+
+scopes:
+
+    featured:
+        label: indikator.photography::lang.form.featured
+        type: checkbox
+        conditions: featured = 1
+
+    status:
+        label: indikator.photography::lang.form.status_active
+        type: checkbox
+        conditions: status = 1
+
+    category:
+        label: indikator.photography::lang.menu.categories
+        modelClass: Indikator\Photography\Models\Categories
+        nameFrom: name
+        scope: FilterCategories
+
+    landscape:
+        label: indikator.photography::lang.form.exif_orientation_l
+        type: checkbox
+        conditions: exif_orientation = 'l'
+
+    portrait:
+        label: indikator.photography::lang.form.exif_orientation_p
+        type: checkbox
+        conditions: exif_orientation = 'p'
+
+    exif_ratio:
+        label: indikator.photography::lang.form.exif_ratio
+        type: group
+        conditions: exif_ratio in (:filtered)
+        options:
+            '4:3': '4:3'
+            '3:2': '3:2'
+            '1:1': '1:1'
+            '16:9': '16:9'
+            '5:7': '5:7'
+            '5:4': '5:4'
+            '2:1': '2:1'
+
+    exif_date:
+        label: indikator.photography::lang.form.exif_date
+        type: daterange
+        conditions: exif_date >= ':after' AND exif_date <= ':before'

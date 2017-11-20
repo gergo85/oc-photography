@@ -1,0 +1,12 @@
+# ===================================
+#  Reorder Behavior Config
+# ===================================
+
+title: indikator.photography::lang.button.reorder
+
+nameFrom: name
+
+modelClass: Indikator\Photography\Models\Equipment
+
+toolbar:
+    buttons: reorder_toolbar

@@ -1,0 +1,81 @@
+# ===================================
+#  Field Definitions
+# ===================================
+
+fields:
+
+    brand:
+        label: indikator.photography::lang.form.brand
+        span: auto
+
+    name:
+        label: indikator.photography::lang.form.name
+        required: true
+        span: auto
+ 
+    purchased:
+        label: indikator.photography::lang.form.purchased
+        span: auto
+
+    manual:
+        label: indikator.photography::lang.form.manual
+        type: mediafinder
+        span: auto
+
+    content:
+        label: indikator.photography::lang.form.content
+        type: richeditor
+        size: large
+
+secondaryTabs:
+    fields:
+
+        image:
+            label: indikator.photography::lang.form.image
+            type: mediafinder
+            mode: image
+
+        price:
+            label: indikator.photography::lang.form.price
+            span: auto
+
+        org_price:
+            label: indikator.photography::lang.form.org_price
+            span: auto
+
+        type:
+            label: indikator.photography::lang.form.type
+            required: true
+            type: dropdown
+            options:
+                1: indikator.photography::lang.form.type_camera
+                2: indikator.photography::lang.form.type_lens
+                3: indikator.photography::lang.form.type_flash
+                4: indikator.photography::lang.form.type_case
+                5: indikator.photography::lang.form.type_other
+            default: 1
+
+        comment:
+            label: indikator.photography::lang.form.comment
+            type: textarea
+            size: tiny
+
+        status:
+            label: indikator.photography::lang.form.status
+            required: true
+            type: radio
+            options:
+                1: indikator.photography::lang.button.active
+                2: indikator.photography::lang.button.inactive
+            default: 1
+            span: auto
+
+        featured:
+            label: indikator.photography::lang.form.featured
+            required: true
+            type: radio
+            options:
+                1: indikator.photography::lang.form.yes
+                2: indikator.photography::lang.form.no
+            default: 2
+            span: auto

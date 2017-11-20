@@ -1,0 +1,41 @@
+# ===================================
+# Filter Scope Definitions
+# ===================================
+
+scopes:
+
+    featured:
+        label: indikator.photography::lang.form.featured
+        type: checkbox
+        conditions: featured = 1
+
+    status_active:
+        label: indikator.photography::lang.button.active
+        type: checkbox
+        conditions: status = 1
+
+    status_inactive:
+        label: indikator.photography::lang.button.inactive
+        type: checkbox
+        conditions: status = 2
+
+    type:
+        label: indikator.photography::lang.form.type
+        type: group
+        conditions: type in (:filtered)
+        options:
+            1: 'Camera'
+            2: 'Lens'
+            3: 'Flash'
+            4: 'Case'
+            5: 'Other'
+
+    created_date:
+        label: indikator.photography::lang.form.created
+        type: daterange
+        conditions: created_at >= ':after' AND created_at <= ':before'
+
+    updated_date:
+        label: indikator.photography::lang.form.updated
+        type: daterange
+        conditions: updated_at >= ':after' AND updated_at <= ':before'

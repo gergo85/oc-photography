@@ -1,0 +1,17 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+name: indikator.photography::lang.title.equipment
+form: ~/plugins/indikator/photography/models/equipment/fields.yaml
+
+modelClass: Indikator\Photography\Models\Equipment
+defaultRedirect: indikator/photography/equipment
+
+create:
+    redirect: indikator/photography/equipment/update/:id
+    redirectClose: indikator/photography/equipment
+
+update:
+    redirect: indikator/photography/equipment/update/:id
+    redirectClose: indikator/photography/equipment
