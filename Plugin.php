@@ -65,15 +65,15 @@ class Plugin extends PluginBase
     {
         return [
             'indikator.photography.photos' => [
-                'tab'   => 'indikator.photography::lang.menu.photography',
+                'tab'   => 'indikator.photography::lang.plugin.name',
                 'label' => 'indikator.photography::lang.permission.photos'
             ],
             'indikator.photography.categories' => [
-                'tab'   => 'indikator.photography::lang.menu.photography',
+                'tab'   => 'indikator.photography::lang.plugin.name',
                 'label' => 'indikator.photography::lang.permission.categories'
             ],
             'indikator.photography.equipment' => [
-                'tab'   => 'indikator.photography::lang.menu.photography',
+                'tab'   => 'indikator.photography::lang.plugin.name',
                 'label' => 'indikator.photography::lang.permission.equipment'
             ]
         ];
