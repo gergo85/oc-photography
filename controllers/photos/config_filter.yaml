@@ -20,6 +20,16 @@ scopes:
         nameFrom: name
         scope: FilterCategories
 
+    exif_iso:
+        label: indikator.photography::lang.form.exif_iso
+        type: numberrange
+        conditions: exif_iso >= ':min' and exif_iso <= ':max'
+
+    exif_flash:
+        label: indikator.photography::lang.form.exif_flash
+        type: checkbox
+        conditions: exif_flash = 'l'
+
     landscape:
         label: indikator.photography::lang.form.exif_orientation_l
         type: checkbox

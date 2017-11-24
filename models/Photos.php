@@ -184,8 +184,8 @@ class Photos extends Model
     {
         if ($this->_categories === null) {
             $this->_categories = [];
-            $list = Db::table('indikator_photography_relations')->where('photos_id', $this->id)->get();
-            
+            $list = Db::table('indikator_photography_relations')->where('photos_id', $this->id)->get()->all();
+
             foreach ($list as $item) {
                 $category = Categories::whereId($item->blog_categories_id)->first();
 
