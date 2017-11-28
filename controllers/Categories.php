@@ -9,9 +9,9 @@ use Lang;
 class Categories extends Controller
 {
     public $implement = [
-        'Backend.Behaviors.FormController',
-        'Backend.Behaviors.ListController',
-        'Backend.Behaviors.ReorderController'
+        \Backend\Behaviors\FormController::class,
+        \Backend\Behaviors\ListController::class,
+        \Backend\Behaviors\ReorderController::class
     ];
 
     public $formConfig = 'config_form.yaml';
@@ -40,7 +40,7 @@ class Categories extends Controller
                 $item->update(['status' => 1]);
             }
 
-            Flash::success(Lang::get('indikator.content::lang.flash.activate'));
+            Flash::success(Lang::get('indikator.photography::lang.flash.activate'));
         }
 
         return $this->listRefresh();
@@ -57,7 +57,7 @@ class Categories extends Controller
                 $item->update(['status' => 2]);
             }
 
-            Flash::success(Lang::get('indikator.content::lang.flash.deactivate'));
+            Flash::success(Lang::get('indikator.photography::lang.flash.deactivate'));
         }
 
         return $this->listRefresh();
@@ -76,7 +76,7 @@ class Categories extends Controller
                 Db::table('indikator_photography_relations')->where('categories_id', $itemId)->delete();
             }
 
-            Flash::success(Lang::get('indikator.content::lang.flash.remove'));
+            Flash::success(Lang::get('indikator.photography::lang.flash.remove'));
         }
 
         return $this->listRefresh();

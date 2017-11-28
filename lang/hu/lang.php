@@ -88,7 +88,8 @@ return [
     'widget' => [
         'summary' => 'Fotózás - Összegzés',
         'show_photos' => 'Fotók mutatása',
-        'show_categories' => 'Kategóriák mutatása'
+        'show_categories' => 'Kategóriák mutatása',
+        'show_equipment' => 'Felszerelés mutatása'
     ],
     'permission' => [
         'photos' => 'Fotók kezelése',

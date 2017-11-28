@@ -88,7 +88,8 @@ return [
     'widget' => [
         'summary' => 'Photography - Summary',
         'show_photos' => 'Show photos',
-        'show_categories' => 'Show categories'
+        'show_categories' => 'Show categories',
+        'show_equipment' => 'Show equipment'
     ],
     'permission' => [
         'photos' => 'Manage photos',

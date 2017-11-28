@@ -14,7 +14,7 @@ columns:
         clickable: false
         invisible: true
         type: partial
-        path: ~/plugins/indikator/photography/models/categories/_image.htm  
+        path: ~/plugins/indikator/photography/models/categories/_image.htm
 
     name:
         label: indikator.photography::lang.form.name
@@ -32,7 +32,7 @@ columns:
 
     stat:
         label: indikator.photography::lang.menu.photos
-        searchable: true
+        sortable: false
         type: partial
         path: ~/plugins/indikator/photography/models/categories/_stat.htm
 

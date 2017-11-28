@@ -16,6 +16,12 @@
                 <span class="status-label primary"><?= $categories ?></span>
             </li>
             <?php endif ?>
+            <?php if ($this->property('equipment')): ?>
+            <li>
+                <span class="status-text"><?= e(trans('indikator.photography::lang.menu.equipment')) ?></span>
+                <span class="status-label primary"><?= $equipment ?></span>
+            </li>
+            <?php endif ?>
         </ul>
     </div>
 

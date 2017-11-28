@@ -9,8 +9,8 @@ use Lang;
 class Photos extends Controller
 {
     public $implement = [
-        'Backend.Behaviors.FormController',
-        'Backend.Behaviors.ListController'
+        \Backend\Behaviors\FormController::class,
+        \Backend\Behaviors\ListController::class
     ];
 
     public $formConfig = 'config_form.yaml';
@@ -38,7 +38,7 @@ class Photos extends Controller
                 $item->update(['status' => 1]);
             }
 
-            Flash::success(Lang::get('indikator.content::lang.flash.activate'));
+            Flash::success(Lang::get('indikator.photography::lang.flash.activate'));
         }
 
         return $this->listRefresh();
@@ -55,7 +55,7 @@ class Photos extends Controller
                 $item->update(['status' => 2]);
             }
 
-            Flash::success(Lang::get('indikator.content::lang.flash.deactivate'));
+            Flash::success(Lang::get('indikator.photography::lang.flash.deactivate'));
         }
 
         return $this->listRefresh();
@@ -72,7 +72,7 @@ class Photos extends Controller
                 $item->delete();
             }
 
-            Flash::success(Lang::get('indikator.content::lang.flash.remove'));
+            Flash::success(Lang::get('indikator.photography::lang.flash.remove'));
         }
 
         return $this->listRefresh();

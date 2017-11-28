@@ -36,6 +36,11 @@ class Summary extends ReportWidgetBase
                 'title'             => 'indikator.photography::lang.widget.show_categories',
                 'default'           => true,
                 'type'              => 'checkbox'
+            ],
+            'equipment' => [
+                'title'             => 'indikator.photography::lang.widget.show_equipment',
+                'default'           => true,
+                'type'              => 'checkbox'
             ]
         ];
     }
@@ -44,5 +49,6 @@ class Summary extends ReportWidgetBase
     {
         $this->vars['photos']     = \Indikator\Photography\Models\Photos::count();
         $this->vars['categories'] = \Indikator\Photography\Models\Categories::count();
+        $this->vars['equipment']  = \Indikator\Photography\Models\Equipment::count();
     }
 }
