@@ -54,6 +54,7 @@ return [
         'exif_orientation_l' => 'Landscape',
         'exif_orientation_p' => 'Portrait',
         'exif_orientation_c' => 'Cube',
+        'filesize' => 'Filesize',
         // Equipment
         'brand' => 'Brand',
         'purchased' => 'Purchased',

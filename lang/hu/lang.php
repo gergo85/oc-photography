@@ -54,6 +54,7 @@ return [
         'exif_orientation_l' => 'Fekvő',
         'exif_orientation_p' => 'Álló',
         'exif_orientation_c' => 'Négyzet',
+        'filesize' => 'Fájlméret',
         // Felszerelés
         'brand' => 'Márka',
         'purchased' => 'Megvásárolva',

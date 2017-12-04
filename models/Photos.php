@@ -177,6 +177,9 @@ class Photos extends Model
             else {
                 $this->exif_ratio = 0;
             }
+
+            // Filesize
+            $this->filesize = filesize($path.$this->image);
         }
     }
 
