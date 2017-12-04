@@ -3,6 +3,7 @@
 use Backend\Classes\Controller;
 use BackendMenu;
 use Indikator\Photography\Models\Categories as Item;
+use Db;
 use Flash;
 use Lang;
 

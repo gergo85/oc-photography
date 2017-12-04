@@ -3,6 +3,7 @@
 use Backend\Classes\Controller;
 use BackendMenu;
 use Indikator\Photography\Models\Photos as Item;
+use Db;
 use Flash;
 use Lang;
 
@@ -70,6 +71,8 @@ class Photos extends Controller
                 }
 
                 $item->delete();
+
+                Db::table('indikator_photography_relations')->where('photos_id', $itemId)->delete();
             }
 
             Flash::success(Lang::get('indikator.photography::lang.flash.remove'));
