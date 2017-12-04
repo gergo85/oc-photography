@@ -66,15 +66,21 @@ class Plugin extends PluginBase
         return [
             'indikator.photography.photos' => [
                 'tab'   => 'indikator.photography::lang.plugin.name',
-                'label' => 'indikator.photography::lang.permission.photos'
+                'label' => 'indikator.photography::lang.permission.photos',
+                'order' => 100,
+                'roles' => ['publisher']
             ],
             'indikator.photography.categories' => [
                 'tab'   => 'indikator.photography::lang.plugin.name',
-                'label' => 'indikator.photography::lang.permission.categories'
+                'label' => 'indikator.photography::lang.permission.categories',
+                'order' => 200,
+                'roles' => ['publisher']
             ],
             'indikator.photography.equipment' => [
                 'tab'   => 'indikator.photography::lang.plugin.name',
-                'label' => 'indikator.photography::lang.permission.equipment'
+                'label' => 'indikator.photography::lang.permission.equipment',
+                'order' => 300,
+                'roles' => ['publisher']
             ]
         ];
     }
