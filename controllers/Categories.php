@@ -88,7 +88,7 @@ class Categories extends Controller
         return '
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="popup">×</button>
-                <h4 class="modal-title">'.Item::where('image', post('image'))->pluck('name').'</h4>
+                <h4 class="modal-title">'.Item::where('image', post('image'))->value('name').'</h4>
             </div>
             <div class="modal-body">
                 <img src="/storage/app/media'.post('image').'" alt="" class="img-responsive"><br>
