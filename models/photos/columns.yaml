@@ -53,14 +53,12 @@ columns:
 
     exif_flash:
         label: indikator.photography::lang.form.exif_flash
-        searchable: true
         invisible: true
         type: partial
         path: ~/plugins/indikator/photography/models/photos/_flash.htm
 
     exif_orientation:
         label: indikator.photography::lang.form.exif_orientation
-        searchable: true
         type: partial
         path: ~/plugins/indikator/photography/models/photos/_orientation.htm
 
@@ -80,7 +78,6 @@ columns:
 
     filesize:
         label: indikator.photography::lang.form.filesize
-        sortable: false
         clickable: false
         invisible: true
         type: partial
@@ -88,7 +85,7 @@ columns:
 
     featured:
         label: indikator.photography::lang.form.featured
-        searchable: true
+        sortable: false
         invisible: true
         type: photo_featured
 

@@ -27,7 +27,6 @@ columns:
 
     sort_order:
         label: indikator.photography::lang.form.sort_order
-        searchable: true
         invisible: true
 
     stat:
@@ -38,7 +37,7 @@ columns:
 
     featured:
         label: indikator.photography::lang.form.featured
-        searchable: true
+        sortable: false
         type: photo_featured
 
     status:
