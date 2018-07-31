@@ -28,6 +28,7 @@ columns:
     sort_order:
         label: indikator.photography::lang.form.sort_order
         invisible: true
+        align: center
 
     stat:
         label: indikator.photography::lang.menu.photos

@@ -45,6 +45,7 @@ columns:
     sort_order:
         label: indikator.photography::lang.form.sort_order
         invisible: true
+        align: center
 
     featured:
         label: indikator.photography::lang.form.featured
