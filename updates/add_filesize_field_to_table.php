@@ -9,7 +9,7 @@ class AddFilesizeFieldToTable extends Migration
     {
         Schema::table('indikator_photography_photos', function($table)
         {
-            $table->string('filesize', 20)->nullable();
+            $table->string('filesize', 10)->nullable();
         });
     }
 
