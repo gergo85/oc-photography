@@ -10,6 +10,7 @@
 1.0.3: Added navigation links to the forms.
 1.0.4: !!! Updated for October 420+.
 1.0.5: Minor improvements and bugfix.
-1.0.6:
-    - Added filesize info to photos.
+1.0.6: Added filesize info to photos.
+1.0.7: 
+    - Improved the photo metadata.
     - add_filesize_field_to_table.php

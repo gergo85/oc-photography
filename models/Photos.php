@@ -46,26 +46,36 @@ class Photos extends Model
 
     public function beforeSave()
     {
+        // Media folder
         $path = base_path().'/storage/app/media';
 
+        // Checks if the photo exists
         if (isset($this->image) && !empty($this->image) && file_exists($path.$this->image)) {
-            // Data
+            // Basic data
             $exif_ifd0 = @read_exif_data($path.$this->image, 'IFD0', 0);
             $exif_exif = @read_exif_data($path.$this->image, 'EXIF', 0);
 
-            // Date
+            // Date and time
             if (@array_key_exists('DateTime', $exif_ifd0)) {
                 $this->exif_date = $exif_ifd0['DateTime'];
             }
             else {
-                $this->exif_date = 0;
+                $this->exif_date = '-';
             }
 
-            // Model
-            if (@array_key_exists('Model', $exif_ifd0)) {
-                $this->exif_model = $exif_ifd0['Model'];
+            // Camera brand
+            if (@array_key_exists('Make', $exif_ifd0)) {
+                $this->exif_model = $exif_ifd0['Make'];
             }
             else {
+                $this->exif_model = '';
+            }
+
+            // Camera model
+            if (@array_key_exists('Model', $exif_ifd0)) {
+                $this->exif_model = trim($this->exif_model.' '.$exif_ifd0['Model']);
+            }
+            else if ($this->exif_model == '') {
                 $this->exif_model = '-';
             }
 
@@ -79,6 +89,9 @@ class Photos extends Model
 
             // Exposure
             if (@array_key_exists('ExposureTime', $exif_ifd0)) {
+                if (substr($exif_ifd0['ExposureTime'], -2) == '/1') {
+                    $exif_ifd0['ExposureTime'] = substr($exif_ifd0['ExposureTime'], 0, -2);
+                }
                 $this->exif_exposure = $exif_ifd0['ExposureTime'];
             }
             else {
@@ -87,10 +100,10 @@ class Photos extends Model
 
             // Focal length
             if (@array_key_exists('FocalLength', $exif_exif)) {
-                $this->exif_focal = str_replace('/1', ' mm', $exif_exif['FocalLength']);
+                $this->exif_focal = (str_replace('/1', '', $exif_exif['FocalLength']) / 100).' mm';
             }
             else {
-                $this->exif_focal = 0;
+                $this->exif_focal = '-';
             }
 
             // ISO
@@ -98,7 +111,7 @@ class Photos extends Model
                 $this->exif_iso = $exif_exif['ISOSpeedRatings'];
             }
             else {
-                $this->exif_iso = 0;
+                $this->exif_iso = '-';
             }
 
             // Flash
@@ -133,7 +146,7 @@ class Photos extends Model
                 $this->exif_flash = 'No';
             }
 
-            // Size
+            // Dimension
             $size = getimagesize($path.$this->image);
             $this->exif_width  = $size[0];
             $this->exif_height = $size[1];
