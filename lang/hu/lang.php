@@ -3,7 +3,7 @@
 return [
     'plugin' => [
         'name' => 'Fotózás',
-        'description' => 'Fotók kezelése egyszerűen.',
+        'description' => 'Fényképek és fotós felszerelések menedzselése.',
         'author' => 'Szabó Gergő'
     ],
     'menu' => [
@@ -40,11 +40,11 @@ return [
         'updated' => 'Módosítva',
         // Fotók
         'more' => 'Továbbiak',
-        'exif_date' => 'Készítve',
+        'exif_date' => 'Elkészítve',
         'exif_model' => 'Fényképezőgép',
         'exif_aperture' => 'Rekesz',
         'exif_exposure' => 'Záridő',
-        'exif_focal' => 'Fókusz távolság',
+        'exif_focal' => 'Fókusz',
         'exif_iso' => 'ISO',
         'exif_flash' => 'Vaku',
         'exif_ratio' => 'Képarány',

@@ -3,7 +3,7 @@
 return [
     'plugin' => [
         'name' => 'Photography',
-        'description' => 'Manage your photos easily.',
+        'description' => 'Manage your photos and equipment easily.',
         'author' => 'Gergő Szabó'
     ],
     'menu' => [
