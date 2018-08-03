@@ -63,20 +63,22 @@ class Photos extends Model
                 $this->exif_date = '-';
             }
 
-            // Camera brand
-            if (@array_key_exists('Make', $exif_ifd0)) {
-                $this->exif_model = $exif_ifd0['Make'];
-            }
-            else {
-                $this->exif_model = '';
-            }
-
             // Camera model
             if (@array_key_exists('Model', $exif_ifd0)) {
-                $this->exif_model = trim($this->exif_model.' '.$exif_ifd0['Model']);
+                $this->exif_model = $exif_ifd0['Model'];
             }
-            else if ($this->exif_model == '') {
+            else {
                 $this->exif_model = '-';
+            }
+
+            // Camera brand
+            if (@array_key_exists('Make', $exif_ifd0)) {
+                if (substr_count($this->exif_model, $exif_ifd0['Make']) == 0) {
+                    $this->exif_model = $exif_ifd0['Make'].' '.$this->exif_model;
+                }
+                else if ($this->exif_model == '-') {
+                    $this->exif_model = $exif_ifd0['Make'];
+                }
             }
 
             // Aperture
@@ -100,7 +102,11 @@ class Photos extends Model
 
             // Focal length
             if (@array_key_exists('FocalLength', $exif_exif)) {
-                $this->exif_focal = (str_replace('/1', '', $exif_exif['FocalLength']) / 100).' mm';
+                $value = str_replace('/1', '', $exif_exif['FocalLength']);
+                if ($value > 1000) {
+                    $value /= 100;
+                }
+                $this->exif_focal = $value.' mm';
             }
             else {
                 $this->exif_focal = '-';
