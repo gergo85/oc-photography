@@ -28,7 +28,7 @@ scopes:
     exif_flash:
         label: indikator.photography::lang.form.exif_flash
         type: checkbox
-        conditions: exif_flash = 'l'
+        conditions: exif_flash = 'Yes'
 
     landscape:
         label: indikator.photography::lang.form.exif_orientation_l
