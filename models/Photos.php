@@ -94,6 +94,9 @@ class Photos extends Model
                 if (substr($exif_ifd0['ExposureTime'], -2) == '/1') {
                     $exif_ifd0['ExposureTime'] = substr($exif_ifd0['ExposureTime'], 0, -2);
                 }
+                else if (substr($exif_ifd0['ExposureTime'], 0, 3) == '10/') {
+                    $exif_ifd0['ExposureTime'] = '1'.substr($exif_ifd0['ExposureTime'], 2, -1);
+                }
                 $this->exif_exposure = $exif_ifd0['ExposureTime'];
             }
             else {
@@ -103,8 +106,8 @@ class Photos extends Model
             // Focal length
             if (@array_key_exists('FocalLength', $exif_exif)) {
                 $value = str_replace('/1', '', $exif_exif['FocalLength']);
-                if ($value > 1000) {
-                    $value /= 100;
+                if ($value > 800) {
+                    $value = round($value / 100);
                 }
                 $this->exif_focal = $value.' mm';
             }
