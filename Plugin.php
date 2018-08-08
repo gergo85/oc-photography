@@ -45,7 +45,13 @@ class Plugin extends PluginBase
                         'url'         => Backend::url('indikator/photography/equipment'),
                         'icon'        => 'icon-suitcase',
                         'permissions' => ['indikator.photography.equipment']
-                    ]
+                    ],
+                    'statistics' => [
+                        'label'       => 'indikator.photography::lang.menu.statistics',
+                        'url'         => Backend::url('indikator/photography/statistics'),
+                        'icon'        => 'icon-pie-chart',
+                        'permissions' => ['indikator.photography.statistics']
+                    ],
                 ]
             ]
         ];
@@ -79,6 +85,12 @@ class Plugin extends PluginBase
             'indikator.photography.equipment' => [
                 'tab'   => 'indikator.photography::lang.plugin.name',
                 'label' => 'indikator.photography::lang.permission.equipment',
+                'order' => 300,
+                'roles' => ['publisher']
+            ],
+            'indikator.photography.statistics' => [
+                'tab'   => 'indikator.photography::lang.plugin.name',
+                'label' => 'indikator.photography::lang.permission.statistics',
                 'order' => 300,
                 'roles' => ['publisher']
             ]

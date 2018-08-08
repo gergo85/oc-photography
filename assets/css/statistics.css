@@ -1,0 +1,21 @@
+.photostat .control-status-list ul {
+    margin: 0 5px 0 -5px;
+}
+
+.photostat .status-text {
+    margin-left: -5px !important;
+}
+
+.photostat .status-label {
+    position: relative;
+    right: -20px;
+    top: -20px;
+}
+
+.photostat .callout i {
+    margin: -8px 16px 0 0;
+}
+
+.photostat .callout h3 {
+    margin-top: -2px;
+}

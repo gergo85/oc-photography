@@ -9,7 +9,8 @@ return [
     'menu' => [
         'photos' => 'Fotók',
         'categories' => 'Kategóriák',
-        'equipment' => 'Felszerelés'
+        'equipment' => 'Felszerelés',
+        'statistics' => 'Statisztika'
     ],
     'title' => [
         'photos' => 'fotó',
@@ -86,6 +87,10 @@ return [
         'delete' => 'Valóban törölni akarja a tételeket?',
         'remove' => 'A tételek sikeresen eltávolításra kerültek.'
     ],
+    'statistics' => [
+        'no_photo' => 'Nincs fotó, nincs statisztika!',
+        'photos' => 'Fotó'
+    ],
     'widget' => [
         'summary' => 'Fotózás - Összegzés',
         'show_photos' => 'Fotók mutatása',
@@ -95,6 +100,7 @@ return [
     'permission' => [
         'photos' => 'Fotók kezelése',
         'categories' => 'Kategóriák kezelése',
-        'equipment' => 'Felszerelés kezelése'
+        'equipment' => 'Felszerelés kezelése',
+        'statistics' => 'Statisztika megtekintése'
     ]
 ];

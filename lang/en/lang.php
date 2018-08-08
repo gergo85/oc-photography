@@ -9,7 +9,8 @@ return [
     'menu' => [
         'photos' => 'Photos',
         'categories' => 'Categories',
-        'equipment' => 'Equipment'
+        'equipment' => 'Equipment',
+        'statistics' => 'Statistics'
     ],
     'title' => [
         'photos' => 'photo',
@@ -83,8 +84,12 @@ return [
     'flash' => [
         'activate' => 'Successfully activated those items.',
         'deactivate' => 'Successfully deactivated those items.',
-        'delete' => 'Do you really want to delete this items?',
+        'delete' => 'Do you want to delete this items?',
         'remove' => 'Successfully removed those items.'
+    ],
+    'statistics' => [
+        'no_photo' => 'No photo, no statistics!',
+        'photos' => 'Photos'
     ],
     'widget' => [
         'summary' => 'Photography - Summary',
@@ -95,6 +100,7 @@ return [
     'permission' => [
         'photos' => 'Manage photos',
         'categories' => 'Manage categories',
-        'equipment' => 'Manage equipment'
+        'equipment' => 'Manage equipment',
+        'statistics' => 'View statistics'
     ]
 ];

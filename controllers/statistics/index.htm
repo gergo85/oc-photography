@@ -1,0 +1,73 @@
+
+<div class="control-breadcrumb">
+    <ul>
+        <li><?= e(trans('indikator.photography::lang.menu.statistics')) ?></li>
+        <li><span class="text-info"><strong><?= $photos ?></strong> <?= e(trans('indikator.photography::lang.statistics.photos')) ?></span></li>
+    </ul>
+</div>
+
+<div class="scoreboard photostat">
+    <?php if ($photos): ?>
+    <div data-control="toolbar">
+        <div class="row">
+            <div class="col-md-3 col-md-offset-2">
+                <div class="row">
+                    <div class="col-md-12 col-sm-6 col-xs-6">
+                        <h4><?= e(trans('indikator.photography::lang.form.exif_flash')) ?></h4>
+                        <div class="control-chart" data-control="chart-pie">
+                            <ul>
+                                <li data-color="#34495e"><?= e(trans('indikator.photography::lang.form.no')) ?><span><?= $flash['No'] ?></span></li>
+                                <li data-color="#d35400"><?= e(trans('indikator.photography::lang.form.yes')) ?><span><?= $flash['Yes'] ?></span></li>
+                            </ul>
+                        </div>
+                        <br>
+                    </div>
+                    <div class="col-md-12 col-sm-6 col-xs-6">
+                        <h4><?= e(trans('indikator.photography::lang.form.exif_orientation')) ?></h4>
+                        <div class="control-chart" data-control="chart-pie">
+                            <ul>
+                                <li data-color="#327122"><?= e(trans('indikator.photography::lang.form.exif_orientation_l')) ?><span><?= $orientation['l'] ?></span></li>
+                                <li data-color="#03778f"><?= e(trans('indikator.photography::lang.form.exif_orientation_p')) ?><span><?= $orientation['p'] ?></span></li>
+                                <li data-color="#663A78"><?= e(trans('indikator.photography::lang.form.exif_orientation_c')) ?><span><?= $orientation['c'] ?></span></li>
+                            </ul>
+                        </div>
+                        <br>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-6 col-xs-6">
+                <h4><?= e(trans('indikator.photography::lang.form.exif_ratio')) ?></h4>
+                <div class="control-status-list">
+                    <ul>
+                        <li><span class="status-text">4:3</span><span class="status-label primary"><?= $ratio['4:3'] ?></span></li>
+                        <li><span class="status-text">3:2</span><span class="status-label primary"><?= $ratio['3:2'] ?></span></li>
+                        <li><span class="status-text">1:1</span><span class="status-label primary"><?= $ratio['1:1'] ?></span></li>
+                        <li><span class="status-text">16:9</span><span class="status-label primary"><?= $ratio['16:9'] ?></span></li>
+                        <li><span class="status-text">5:7</span><span class="status-label primary"><?= $ratio['5:7'] ?></span></li>
+                        <li><span class="status-text">5:4</span><span class="status-label primary"><?= $ratio['5:4'] ?></span></li>
+                        <li><span class="status-text">2:1</span><span class="status-label primary"><?= $ratio['2:1'] ?></span></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-6 col-xs-6 col-md-offset-1">
+                <h4><?= e(trans('indikator.photography::lang.form.exif_iso')) ?></h4>
+                <div class="control-status-list">
+                    <ul>
+                        <?php foreach($iso as $value => $number): ?>
+                        <li><span class="status-text"><?= $value ?></span><span class="status-label primary"><?= $number ?></span></li>
+                        <?php endforeach; ?>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <?php else: ?>
+    <div class="callout callout-warning">
+        <div class="header">
+            <i class="icon-exclamation-triangle"></i>
+            <h3><?= e(trans('indikator.photography::lang.statistics.no_photo')) ?></h3>
+        </div>
+    </div>
+    <?php endif ?>
+</div>

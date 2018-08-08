@@ -14,3 +14,4 @@
 1.0.7: 
     - Improved the photo metadata.
     - add_filesize_field_to_table.php
+1.0.8: Added Statistics page.
