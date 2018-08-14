@@ -89,7 +89,10 @@ return [
     ],
     'statistics' => [
         'no_photo' => 'No photo, no statistics!',
-        'photos' => 'Photos'
+        'photos' => 'Photos',
+        'max' => 'Max',
+        'min' => 'Min',
+        'avg' => 'Avg'
     ],
     'widget' => [
         'summary' => 'Photography - Summary',

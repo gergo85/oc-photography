@@ -1,3 +1,12 @@
+.photostat .statbox {
+    background: #fff;
+    box-shadow:         3px 3px 11px 0 rgba(217, 217, 217, 1);
+    -moz-box-shadow:    3px 3px 11px 0 rgba(217, 217, 217, 1);
+    -webkit-box-shadow: 3px 3px 11px 0 rgba(217, 217, 217, 1);
+    margin: 10px 0 20px 0;
+    padding: 5px 20px 15px 20px;
+}
+
 .photostat .control-status-list ul {
     margin: 0 5px 0 -5px;
 }
@@ -8,14 +17,15 @@
 
 .photostat .status-label {
     position: relative;
-    right: -20px;
-    top: -20px;
+    right: -15px;
 }
 
-.photostat .callout i {
+.photostat i {
     margin: -8px 16px 0 0;
 }
 
-.photostat .callout h3 {
-    margin-top: -2px;
+.photostat h4 {
+    border-bottom: 1px solid #cae1e2;
+    margin-bottom: 15px;
+    padding-bottom: 5px;
 }

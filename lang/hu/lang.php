@@ -89,7 +89,10 @@ return [
     ],
     'statistics' => [
         'no_photo' => 'Nincs fotó, nincs statisztika!',
-        'photos' => 'Fotó'
+        'photos' => 'Fotó',
+        'max' => 'Max.',
+        'min' => 'Min.',
+        'avg' => 'Átlag'
     ],
     'widget' => [
         'summary' => 'Fotózás - Összegzés',

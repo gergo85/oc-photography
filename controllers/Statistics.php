@@ -10,18 +10,15 @@ class Statistics extends Controller
 
     public $photos = 0;
 
+    public $model = [];
+
     public $iso = [];
 
-    public $flash = [
-        'No'  => 0,
-        'Yes' => 0
-    ];
+    public $aperture = [];
 
-    public $orientation = [
-        'l' => 0,
-        'p' => 0,
-        'c' => 0
-    ];
+    public $exposure = [];
+
+    public $focal = [];
 
     public $ratio = [
         '4:3'  => 0,
@@ -31,6 +28,23 @@ class Statistics extends Controller
         '5:7'  => 0,
         '5:4'  => 0,
         '2:1'  => 0
+    ];
+
+    public $orientation = [
+        'l' => 0,
+        'p' => 0,
+        'c' => 0
+    ];
+
+    public $flash = [
+        'No'  => 0,
+        'Yes' => 0
+    ];
+
+    public $filesize = [
+        'max' => 0,
+        'min' => 0,
+        'avg' => 0
     ];
 
     public function __construct()
@@ -49,31 +63,90 @@ class Statistics extends Controller
         $this->getStat();
 
         $this->vars['photos']      = $this->photos;
-        $this->vars['iso']         = $this->iso;
-        $this->vars['flash']       = $this->flash;
-        $this->vars['orientation'] = $this->orientation;
+        $this->vars['model']       = $this->model;
         $this->vars['ratio']       = $this->ratio;
+        $this->vars['orientation'] = $this->orientation;
+        $this->vars['flash']       = $this->flash;
+        $this->vars['iso']         = $this->iso;
+        $this->vars['filesize']    = $this->filesize;
+        $this->vars['aperture']    = $this->aperture;
+        $this->vars['exposure']    = $this->exposure;
+        $this->vars['focal']       = $this->focal;
     }
 
     public function getStat()
     {
-        $result = []; 
-        $items = Photos::get()->all();
+        $result = [];
+        $min = $max = $avg = 0;
+        $items  = Photos::get()->all();
 
         foreach ($items as $item) {
-            $this->flash[$item['exif_flash']]++;
-            $this->orientation[$item['exif_orientation']]++;
+            // Simple increase
+            $this->photos++;
             $this->ratio[$item['exif_ratio']]++;
+            $this->orientation[$item['exif_orientation']]++;
+            $this->flash[$item['exif_flash']]++;
 
+            // Filesize
+            if ($item['filesize'] > $max) {
+                $max = $item['filesize'];
+            }
+            if ($item['filesize'] < $min || $min == 0) {
+                $min = $item['filesize'];
+            }
+            $avg += $item['filesize'];
+
+            // Model
+            if (array_key_exists($item['exif_model'], $this->model)) {
+                $this->model[$item['exif_model']]++;
+            }
+            else {
+                $this->model[$item['exif_model']] = 1;
+            }
+
+            // ISO
             if (array_key_exists($item['exif_iso'], $this->iso)) {
                 $this->iso[$item['exif_iso']]++;
             }
             else {
                 $this->iso[$item['exif_iso']] = 1;
             }
-            ksort($this->iso);
 
-            $this->photos++;
+            // Aperture
+            if (array_key_exists($item['exif_aperture'], $this->aperture)) {
+                $this->aperture[$item['exif_aperture']]++;
+            }
+            else {
+                $this->aperture[$item['exif_aperture']] = 1;
+            }
+
+            // Exposure
+            if (array_key_exists($item['exif_exposure'], $this->exposure)) {
+                $this->exposure[$item['exif_exposure']]++;
+            }
+            else {
+                $this->exposure[$item['exif_exposure']] = 1;
+            }
+
+            // Focal
+            if (array_key_exists($item['exif_focal'], $this->focal)) {
+                $this->focal[$item['exif_focal']]++;
+            }
+            else {
+                $this->focal[$item['exif_focal']] = 1;
+            }
         }
+
+        // Filesize
+        $this->filesize['max'] = round($max / 1048576, 1).' MB';
+        $this->filesize['min'] = round($min / 1048576, 1).' MB';
+        $this->filesize['avg'] = round(($avg / $this->photos) / 1048576, 1).' MB';
+
+        // Sorting
+        arsort($this->model);
+        arsort($this->iso);
+        arsort($this->aperture);
+        arsort($this->exposure);
+        arsort($this->focal);
     }
 }
