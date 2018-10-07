@@ -32,53 +32,59 @@ class Categories extends Controller
 
     public function onActivate()
     {
-        if (($checkedIds = post('checked')) && is_array($checkedIds) && count($checkedIds)) {
-            foreach ($checkedIds as $itemId) {
-                if (!$item = Item::where('status', 2)->whereId($itemId)) {
-                    continue;
-                }
-
-                $item->update(['status' => 1]);
-            }
-
-            Flash::success(Lang::get('indikator.photography::lang.flash.activate'));
+        if (! ($checkedIds = post('checked')) || ! is_array($checkedIds) || ! count($checkedIds)) {
+            return $this->listRefresh();
         }
 
+        foreach ($checkedIds as $itemId) {
+            if (! $item = Item::where('status', 2)->whereId($itemId)) {
+                continue;
+            }
+
+            $item->update(['status' => 1]);
+        }
+
+        Flash::success(Lang::get('indikator.photography::lang.flash.activate'));
+
         return $this->listRefresh();
+
     }
 
     public function onDeactivate()
     {
-        if (($checkedIds = post('checked')) && is_array($checkedIds) && count($checkedIds)) {
-            foreach ($checkedIds as $itemId) {
-                if (!$item = Item::where('status', 1)->whereId($itemId)) {
-                    continue;
-                }
-
-                $item->update(['status' => 2]);
+        if (! ($checkedIds = post('checked')) || ! is_array($checkedIds) || ! count($checkedIds)) {
+            return $this->listRefresh();
+        }
+        foreach ($checkedIds as $itemId) {
+            if (! $item = Item::where('status', 1)->whereId($itemId)) {
+                continue;
             }
 
-            Flash::success(Lang::get('indikator.photography::lang.flash.deactivate'));
+            $item->update(['status' => 2]);
         }
+
+        Flash::success(Lang::get('indikator.photography::lang.flash.deactivate'));
+
 
         return $this->listRefresh();
     }
 
     public function onRemove()
     {
-        if (($checkedIds = post('checked')) && is_array($checkedIds) && count($checkedIds)) {
-            foreach ($checkedIds as $itemId) {
-                if (!$item = Item::whereId($itemId)) {
-                    continue;
-                }
-
-                $item->delete();
-
-                Db::table('indikator_photography_relations')->where('categories_id', $itemId)->delete();
+        if (! ($checkedIds = post('checked')) || ! is_array($checkedIds) || ! count($checkedIds)) {
+            return $this->listRefresh();
+        }
+        foreach ($checkedIds as $itemId) {
+            if (! $item = Item::whereId($itemId)) {
+                continue;
             }
 
-            Flash::success(Lang::get('indikator.photography::lang.flash.remove'));
+            $item->delete();
+
+            Db::table('indikator_photography_relations')->where('categories_id', $itemId)->delete();
         }
+
+        Flash::success(Lang::get('indikator.photography::lang.flash.remove'));
 
         return $this->listRefresh();
     }
