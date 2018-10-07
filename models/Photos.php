@@ -174,31 +174,7 @@ class Photos extends Model
                 $photo_ratio = 1;
             }
 
-            // Ratio
-            if ($photo_ratio == 1.33) {
-                $this->exif_ratio = '4:3';
-            }
-            else if ($photo_ratio == 1.5) {
-                $this->exif_ratio = '3:2';
-            }
-            else if ($photo_ratio == 1) {
-                $this->exif_ratio = '1:1';
-            }
-            else if ($photo_ratio == 1.78) {
-                $this->exif_ratio = '16:9';
-            }
-            else if ($photo_ratio == 1.4) {
-                $this->exif_ratio = '5:7';
-            }
-            else if ($photo_ratio == 1.25) {
-                $this->exif_ratio = '5:4';
-            }
-            else if ($photo_ratio == 2) {
-                $this->exif_ratio = '2:1';
-            }
-            else {
-                $this->exif_ratio = 0;
-            }
+            $this->exif_ratio = $this->getRatio($photo_ratio);
 
             // Filesize
             $this->filesize = filesize($path.$this->image);
@@ -224,5 +200,27 @@ class Photos extends Model
         }
 
         return $this->_categories;
+    }
+
+    /**
+     * @param $photo_ratio
+     */
+    private function getRatio($photo_ratio)
+    {
+        // Ratio
+        $photo_ratio = (string)$photo_ratio;
+        $r = [
+            '1.33' => '4:3',
+            '1.5' => '3:2',
+            '1' => '1:1',
+            '1.78' => '16:9',
+            '1.4' => '5:7',
+            '1.25' => '5:4',
+            '2' => '2:1',
+        ];
+
+        $default = 0;
+
+        return isset($r[$photo_ratio]) ? $r[$photo_ratio] : $default ;
     }
 }
