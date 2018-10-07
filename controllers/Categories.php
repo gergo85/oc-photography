@@ -32,11 +32,11 @@ class Categories extends Controller
 
     public function onActivate()
     {
-        if (! ($checkedIds = post('checked')) || ! is_array($checkedIds) || ! count($checkedIds)) {
+        if ($this->nothingIsSelected()) {
             return $this->listRefresh();
         }
 
-        foreach ($checkedIds as $itemId) {
+        foreach (post('checked') as $itemId) {
             if (! $item = Item::where('status', 2)->whereId($itemId)) {
                 continue;
             }
@@ -52,10 +52,11 @@ class Categories extends Controller
 
     public function onDeactivate()
     {
-        if (! ($checkedIds = post('checked')) || ! is_array($checkedIds) || ! count($checkedIds)) {
+        if ($this->nothingIsSelected()) {
             return $this->listRefresh();
         }
-        foreach ($checkedIds as $itemId) {
+        
+        foreach (post('checked') as $itemId) {
             if (! $item = Item::where('status', 1)->whereId($itemId)) {
                 continue;
             }
@@ -71,10 +72,10 @@ class Categories extends Controller
 
     public function onRemove()
     {
-        if (! ($checkedIds = post('checked')) || ! is_array($checkedIds) || ! count($checkedIds)) {
+        if ($this->nothingIsSelected()) {
             return $this->listRefresh();
         }
-        foreach ($checkedIds as $itemId) {
+        foreach (post('checked') as $itemId) {
             if (! $item = Item::whereId($itemId)) {
                 continue;
             }
@@ -95,5 +96,13 @@ class Categories extends Controller
         $this->vars['image'] = '/storage/app/media'.post('image');
 
         return $this->makePartial('show_image');
+    }
+
+    /**
+     * @return bool
+     */
+    private function nothingIsSelected()
+    {
+        return ! ($checkedIds = post('checked')) || ! is_array($checkedIds) || ! count($checkedIds);
     }
 }
