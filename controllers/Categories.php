@@ -36,15 +36,8 @@ class Categories extends Controller
             return $this->listRefresh();
         }
 
-        foreach (post('checked') as $itemId) {
-            if (! $item = Item::where('status', 2)->whereId($itemId)) {
-                continue;
-            }
-
-            $item->update(['status' => 1]);
-        }
-
-        Flash::success(Lang::get('indikator.photography::lang.flash.activate'));
+        $this->changeStatus(post('checked'), $from = 2, $to = 1);
+        $this->setMsg('activate');
 
         return $this->listRefresh();
 
@@ -55,17 +48,8 @@ class Categories extends Controller
         if ($this->nothingIsSelected()) {
             return $this->listRefresh();
         }
-        
-        foreach (post('checked') as $itemId) {
-            if (! $item = Item::where('status', 1)->whereId($itemId)) {
-                continue;
-            }
-
-            $item->update(['status' => 2]);
-        }
-
-        Flash::success(Lang::get('indikator.photography::lang.flash.deactivate'));
-
+        $this->changeStatus(post('checked'), $from = 1, $to = 2);
+        $this->setMsg('deactivate');
 
         return $this->listRefresh();
     }
@@ -75,6 +59,7 @@ class Categories extends Controller
         if ($this->nothingIsSelected()) {
             return $this->listRefresh();
         }
+
         foreach (post('checked') as $itemId) {
             if (! $item = Item::whereId($itemId)) {
                 continue;
@@ -85,7 +70,7 @@ class Categories extends Controller
             Db::table('indikator_photography_relations')->where('categories_id', $itemId)->delete();
         }
 
-        Flash::success(Lang::get('indikator.photography::lang.flash.remove'));
+        $this->setMsg('remove');
 
         return $this->listRefresh();
     }
@@ -105,4 +90,29 @@ class Categories extends Controller
     {
         return ! ($checkedIds = post('checked')) || ! is_array($checkedIds) || ! count($checkedIds);
     }
+
+    /**
+     * @param $action
+     */
+    private function setMsg($action)
+    {
+        Flash::success(Lang::get('indikator.photography::lang.flash.'.$action));
+    }
+
+    /**
+     * @param $post
+     * @param $from
+     * @param $to
+     */
+    private function changeStatus($post, $from, $to)
+    {
+        foreach ($post as $itemId) {
+
+            if (! $item = Item::where('status', $from)->whereId($itemId)) {
+                continue;
+            }
+            $item->update(['status' => $to]);
+        }
+    }
+
 }
