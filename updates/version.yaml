@@ -18,3 +18,6 @@
 1.1.1:
     - Improved the Statistics page.
     - Modernized the source code.
+1.1.2:
+    - Changed the plugin icon.
+    - Refactor the code a little bit.
