@@ -34,8 +34,10 @@ class Equipment extends Controller
         if ($this->nothingIsSelected()) {
             return $this->listRefresh();
         }
-        $this->changeStatus(post('checked'), $from = 2, $to = 1);
+
+        $this->changeStatus(post('checked'), 2, 1);
         $this->setMsg('activate');
+
         return $this->listRefresh();
     }
 
@@ -44,7 +46,8 @@ class Equipment extends Controller
         if ($this->nothingIsSelected()) {
             return $this->listRefresh();
         }
-        $this->changeStatus(post('checked'), $from = 1, $to = 2);
+
+        $this->changeStatus(post('checked'), 1, 2);
         $this->setMsg('deactivate');
 
         return $this->listRefresh();
@@ -60,6 +63,7 @@ class Equipment extends Controller
             if (! $item = Item::whereId($itemId)) {
                 continue;
             }
+
             $item->delete();
         }
 
@@ -85,7 +89,6 @@ class Equipment extends Controller
         return ! ($checkedIds = post('checked')) || ! is_array($checkedIds) || ! count($checkedIds);
     }
 
-
     /**
      * @param $action
      */
@@ -102,9 +105,10 @@ class Equipment extends Controller
     private function changeStatus($post, $from, $to)
     {
         foreach ($post as $itemId) {
-            if (! $item = Item::where('status', $from)->whereId($itemId)) {
+            if (!$item = Item::where('status', $from)->whereId($itemId)) {
                 continue;
             }
+
             $item->update(['status' => $to]);
         }
     }

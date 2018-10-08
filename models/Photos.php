@@ -207,20 +207,17 @@ class Photos extends Model
      */
     private function getRatio($photo_ratio)
     {
-        // Ratio
         $photo_ratio = (string)$photo_ratio;
-        $r = [
+        $ratios = [
             '1.33' => '4:3',
-            '1.5' => '3:2',
-            '1' => '1:1',
+            '1.5'  => '3:2',
+            '1'    => '1:1',
             '1.78' => '16:9',
-            '1.4' => '5:7',
+            '1.4'  => '5:7',
             '1.25' => '5:4',
-            '2' => '2:1',
+            '2'    => '2:1'
         ];
 
-        $default = 0;
-
-        return isset($r[$photo_ratio]) ? $r[$photo_ratio] : $default ;
+        return isset($ratios[$photo_ratio]) ? $ratios[$photo_ratio] : 0;
     }
 }

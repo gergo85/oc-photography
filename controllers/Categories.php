@@ -36,11 +36,10 @@ class Categories extends Controller
             return $this->listRefresh();
         }
 
-        $this->changeStatus(post('checked'), $from = 2, $to = 1);
+        $this->changeStatus(post('checked'), 2, 1);
         $this->setMsg('activate');
 
         return $this->listRefresh();
-
     }
 
     public function onDeactivate()
@@ -48,7 +47,8 @@ class Categories extends Controller
         if ($this->nothingIsSelected()) {
             return $this->listRefresh();
         }
-        $this->changeStatus(post('checked'), $from = 1, $to = 2);
+
+        $this->changeStatus(post('checked'), 1, 2);
         $this->setMsg('deactivate');
 
         return $this->listRefresh();
@@ -88,7 +88,7 @@ class Categories extends Controller
      */
     private function nothingIsSelected()
     {
-        return ! ($checkedIds = post('checked')) || ! is_array($checkedIds) || ! count($checkedIds);
+        return !($checkedIds = post('checked')) || ! is_array($checkedIds) || ! count($checkedIds);
     }
 
     /**
@@ -107,12 +107,11 @@ class Categories extends Controller
     private function changeStatus($post, $from, $to)
     {
         foreach ($post as $itemId) {
-
-            if (! $item = Item::where('status', $from)->whereId($itemId)) {
+            if (!$item = Item::where('status', $from)->whereId($itemId)) {
                 continue;
             }
+
             $item->update(['status' => $to]);
         }
     }
-
 }
