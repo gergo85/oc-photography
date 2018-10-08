@@ -31,53 +31,42 @@ class Equipment extends Controller
 
     public function onActivate()
     {
-        if (($checkedIds = post('checked')) && is_array($checkedIds) && count($checkedIds)) {
-            foreach ($checkedIds as $itemId) {
-                if (!$item = Item::where('status', 2)->whereId($itemId)) {
-                    continue;
-                }
-
-                $item->update(['status' => 1]);
-            }
-
-            Flash::success(Lang::get('indikator.photography::lang.flash.activate'));
+        if ($this->nothingIsSelected()) {
+            return $this->listRefresh();
         }
-
+        $this->changeStatus(post('checked'), $from = 2, $to = 1);
+        $this->setMsg('activate');
         return $this->listRefresh();
     }
 
     public function onDeactivate()
     {
-        if (($checkedIds = post('checked')) && is_array($checkedIds) && count($checkedIds)) {
-            foreach ($checkedIds as $itemId) {
-                if (!$item = Item::where('status', 1)->whereId($itemId)) {
-                    continue;
-                }
-
-                $item->update(['status' => 2]);
-            }
-
-            Flash::success(Lang::get('indikator.photography::lang.flash.deactivate'));
+        if ($this->nothingIsSelected()) {
+            return $this->listRefresh();
         }
+        $this->changeStatus(post('checked'), $from = 1, $to = 2);
+        $this->setMsg('deactivate');
 
         return $this->listRefresh();
     }
 
     public function onRemove()
     {
-        if (($checkedIds = post('checked')) && is_array($checkedIds) && count($checkedIds)) {
-            foreach ($checkedIds as $itemId) {
-                if (!$item = Item::whereId($itemId)) {
-                    continue;
-                }
-
-                $item->delete();
-            }
-
-            Flash::success(Lang::get('indikator.photography::lang.flash.remove'));
+        if ($this->nothingIsSelected()) {
+            return $this->listRefresh();
         }
 
+        foreach (post('checked') as $itemId) {
+            if (! $item = Item::whereId($itemId)) {
+                continue;
+            }
+            $item->delete();
+        }
+
+        $this->setMsg('remove');
+
         return $this->listRefresh();
+
     }
 
     public function onShowImage()
@@ -86,5 +75,37 @@ class Equipment extends Controller
         $this->vars['image'] = '/storage/app/media'.post('image');
 
         return $this->makePartial('show_image');
+    }
+
+    /**
+     * @return bool
+     */
+    private function nothingIsSelected()
+    {
+        return ! ($checkedIds = post('checked')) || ! is_array($checkedIds) || ! count($checkedIds);
+    }
+
+
+    /**
+     * @param $action
+     */
+    private function setMsg($action)
+    {
+        Flash::success(Lang::get('indikator.photography::lang.flash.'.$action));
+    }
+
+    /**
+     * @param $post
+     * @param $from
+     * @param $to
+     */
+    private function changeStatus($post, $from, $to)
+    {
+        foreach ($post as $itemId) {
+            if (! $item = Item::where('status', $from)->whereId($itemId)) {
+                continue;
+            }
+            $item->update(['status' => $to]);
+        }
     }
 }
