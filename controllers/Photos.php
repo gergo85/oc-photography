@@ -30,69 +30,55 @@ class Photos extends Controller
 
     public function onActivate()
     {
-        if ($this->nothingIsSelected()) {
-            return $this->listRefresh();
+        if ($this->isSelected()) {
+            $this->changeStatus(post('checked'), 2, 1);
+            $this->setMessage('activate');
         }
-
-        $this->changeStatus(post('checked'), 2, 1);
-        $this->setMsg('activate');
 
         return $this->listRefresh();
     }
 
     public function onDeactivate()
     {
-        if ($this->nothingIsSelected()) {
-            return $this->listRefresh();
+        if ($this->isSelected()) {
+            $this->changeStatus(post('checked'), 1, 2);
+            $this->setMessage('deactivate');
         }
-
-        $this->changeStatus(post('checked'), 1, 2);
-        $this->setMsg('deactivate');
 
         return $this->listRefresh();
     }
 
     public function onRemove()
     {
-        if ($this->nothingIsSelected()) {
-            return $this->listRefresh();
-        }
+        if ($this->isSelected()) {
+            foreach (post('checked') as $itemId) {
+                if (! $item = Item::whereId($itemId)) {
+                    continue;
+                }
 
-        foreach (post('checked') as $itemId) {
-            if (! $item = Item::whereId($itemId)) {
-                continue;
+                $item->delete();
+
+                Db::table('indikator_photography_relations')->where('photos_id', $itemId)->delete();
             }
 
-            $item->delete();
-
-            Db::table('indikator_photography_relations')->where('photos_id', $itemId)->delete();
+            $this->setMessage('remove');
         }
 
-        $this->setMsg('remove');
-
         return $this->listRefresh();
-    }
-
-    public function onShowImage()
-    {
-        $this->vars['title'] = Item::where('image', post('image'))->value('name');
-        $this->vars['image'] = '/storage/app/media'.post('image');
-
-        return $this->makePartial('show_image');
     }
 
     /**
      * @return bool
      */
-    private function nothingIsSelected()
+    private function isSelected()
     {
-        return !($checkedIds = post('checked')) || ! is_array($checkedIds) || ! count($checkedIds);
+        return ($checkedIds = post('checked')) && is_array($checkedIds) && count($checkedIds);
     }
 
     /**
      * @param $action
      */
-    private function setMsg($action)
+    private function setMessage($action)
     {
         Flash::success(Lang::get('indikator.photography::lang.flash.'.$action));
     }
@@ -111,5 +97,13 @@ class Photos extends Controller
 
             $item->update(['status' => $to]);
         }
+    }
+
+    public function onShowImage()
+    {
+        $this->vars['title'] = Item::where('image', post('image'))->value('name');
+        $this->vars['image'] = '/storage/app/media'.post('image');
+
+        return $this->makePartial('show_image');
     }
 }
