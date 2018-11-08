@@ -6,13 +6,15 @@ fields:
 
     brand:
         label: indikator.photography::lang.form.brand
+        attributes:
+           autofocus: ''
         span: auto
 
     name:
         label: indikator.photography::lang.form.name
         required: true
         span: auto
- 
+
     purchased:
         label: indikator.photography::lang.form.purchased
         span: auto
