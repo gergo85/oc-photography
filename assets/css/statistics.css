@@ -1,30 +1,30 @@
-.photostat .statbox {
+.statboard .statbox {
     background: #fff;
-    box-shadow:         3px 3px 11px 0 rgba(217, 217, 217, 1);
-    -moz-box-shadow:    3px 3px 11px 0 rgba(217, 217, 217, 1);
     -webkit-box-shadow: 3px 3px 11px 0 rgba(217, 217, 217, 1);
+       -moz-box-shadow: 3px 3px 11px 0 rgba(217, 217, 217, 1);
+            box-shadow: 3px 3px 11px 0 rgba(217, 217, 217, 1);
     margin: 10px 0 20px 0;
     padding: 5px 20px 15px 20px;
 }
 
-.photostat .control-status-list ul {
+.statboard .control-status-list ul {
     margin: 0 5px 0 -5px;
 }
 
-.photostat .status-text {
+.statboard .status-text {
     margin-left: -5px !important;
 }
 
-.photostat .status-label {
+.statboard .status-label {
     position: relative;
     right: -15px;
 }
 
-.photostat i {
+.statboard i {
     margin: -8px 16px 0 0;
 }
 
-.photostat h4 {
+.statboard h4 {
     border-bottom: 1px solid #cae1e2;
     margin-bottom: 15px;
     padding-bottom: 5px;

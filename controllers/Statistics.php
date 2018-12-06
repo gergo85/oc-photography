@@ -121,6 +121,9 @@ class Statistics extends Controller
             }
 
             // Exposure
+            if (substr_count($item['exif_exposure'], '/') == 0) {
+                $item['exif_exposure'] .= '"';
+            }
             if (array_key_exists($item['exif_exposure'], $this->exposure)) {
                 $this->exposure[$item['exif_exposure']]++;
             }

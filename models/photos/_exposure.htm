@@ -1,0 +1,7 @@
+<?php
+
+echo $record->exif_exposure;
+
+if (substr_count($record->exif_exposure, '/') == 0) {
+    echo '"';
+}
