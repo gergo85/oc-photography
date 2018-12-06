@@ -41,11 +41,13 @@ return [
         'updated' => 'Módosítva',
         // Fotók
         'more' => 'Továbbiak',
+        'sensor_size' => 'Szenzor mérete',
         'exif_date' => 'Elkészítve',
         'exif_model' => 'Fényképezőgép',
         'exif_aperture' => 'Rekesz',
         'exif_exposure' => 'Záridő',
         'exif_focal' => 'Fókusz',
+        'exif_focal_ff' => 'Fókusz (35mm)',
         'exif_iso' => 'ISO',
         'exif_flash' => 'Vaku',
         'exif_ratio' => 'Képarány',
@@ -69,6 +71,18 @@ return [
         'type_flash' => 'Vaku',
         'type_case' => 'Táska',
         'type_other' => 'Egyéb'
+    ],
+    'sensor_size' => [
+        'none' => '-- válasszon --',
+        'mf' => 'Közép formátum',
+        'ff' => 'Full Frame',
+        'apsh' => 'APS-C',
+        'apsc' => 'APS-H',
+        '43' => '4/3',
+        '10' => '1"',
+        '16' => '1/1.6"',
+        '23' => '1/2.3"',
+        'other' => 'Egyéb'
     ],
     'button' => [
         'activate' => 'Aktíválás',

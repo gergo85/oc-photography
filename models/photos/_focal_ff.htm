@@ -1,0 +1,20 @@
+<?php
+
+if ($record->sensor_size == 'none' || $record->sensor_size == 'other') {
+    echo '-';
+}
+
+else {
+    $ratio = [
+        'MF'    => 0.67,
+        'FF'    => 1,
+        'APS-H' => 1.29,
+        'APS-C' => 1.52,
+        '4/3'   => 2,
+        '1'     => 2.7,
+        '1/1.6' => 4.3,
+        '1/2.3' => 5.62
+    ];
+
+    echo round($record->exif_focal * $ratio[$record->sensor_size]).' mm';
+}

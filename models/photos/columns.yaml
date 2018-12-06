@@ -42,10 +42,20 @@ columns:
     exif_exposure:
         label: indikator.photography::lang.form.exif_exposure
         searchable: true
+        sortable: false
+        type: partial
+        path: ~/plugins/indikator/photography/models/photos/_exposure.htm
 
     exif_focal:
         label: indikator.photography::lang.form.exif_focal
         searchable: true
+
+    exif_focal_ff:
+        label: indikator.photography::lang.form.exif_focal_ff
+        sortable: false
+        invisible: true
+        type: partial
+        path: ~/plugins/indikator/photography/models/photos/_focal_ff.htm
 
     exif_iso:
         label: indikator.photography::lang.form.exif_iso

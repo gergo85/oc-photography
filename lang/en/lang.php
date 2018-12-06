@@ -41,11 +41,13 @@ return [
         'updated' => 'Updated at',
         // Photos
         'more' => 'More',
+        'sensor_size' => 'Sensor size',
         'exif_date' => 'Make at',
         'exif_model' => 'Camera',
         'exif_aperture' => 'Aperture',
         'exif_exposure' => 'Exposure',
         'exif_focal' => 'Focal length',
+        'exif_focal_ff' => 'Focal (35mm)',
         'exif_iso' => 'ISO',
         'exif_flash' => 'Flash',
         'exif_ratio' => 'Ratio',
@@ -69,6 +71,18 @@ return [
         'type_flash' => 'Flash',
         'type_case' => 'Case',
         'type_other' => 'Other'
+    ],
+    'sensor_size' => [
+        'none' => '-- select --',
+        'mf' => 'Medium Format',
+        'ff' => 'Full Frame',
+        'apsh' => 'APS-C',
+        'apsc' => 'APS-H',
+        '43' => '4/3',
+        '10' => '1"',
+        '16' => '1/1.6"',
+        '23' => '1/2.3"',
+        'other' => 'Other'
     ],
     'button' => [
         'activate' => 'Activate',
