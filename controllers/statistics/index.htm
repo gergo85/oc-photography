@@ -7,7 +7,7 @@
 </div>
 
 <div class="scoreboard statboard">
-    <?php if ($photos): ?>
+    <?php if ($photos > 0): ?>
     <div data-control="toolbar">
         <div class="row">
             <div class="col-md-4">
@@ -82,9 +82,9 @@
                             <h4><?= e(trans('indikator.photography::lang.form.filesize')) ?></h4>
                             <div class="control-status-list">
                                 <ul>
-                                    <li><span class="status-text"><?= e(trans('indikator.photography::lang.statistics.max')) ?></span><span class="status-label primary"><?= $filesize['max'] ?></span></li>
-                                    <li><span class="status-text"><?= e(trans('indikator.photography::lang.statistics.min')) ?></span><span class="status-label primary"><?= $filesize['min'] ?></span></li>
-                                    <li><span class="status-text"><?= e(trans('indikator.photography::lang.statistics.avg')) ?></span><span class="status-label primary"><?= $filesize['avg'] ?></span></li>
+                                    <li><span class="status-text"><?= e(trans('indikator.photography::lang.statistics.max')) ?></span><span class="status-label primary"><?= $filesize['max'] ?> MB</span></li>
+                                    <li><span class="status-text"><?= e(trans('indikator.photography::lang.statistics.min')) ?></span><span class="status-label primary"><?= $filesize['min'] ?> MB</span></li>
+                                    <li><span class="status-text"><?= e(trans('indikator.photography::lang.statistics.avg')) ?></span><span class="status-label primary"><?= $filesize['avg'] ?> MB</span></li>
                                 </ul>
                             </div>
                         </div>
@@ -136,7 +136,7 @@
 
     <?php else: ?>
     <div class="callout callout-warning">
-        <div class="header">
+        <div class="header" style="padding-bottom:20px;">
             <i class="icon-exclamation-triangle"></i>
             <h3><?= e(trans('indikator.photography::lang.statistics.no_photo')) ?></h3>
         </div>

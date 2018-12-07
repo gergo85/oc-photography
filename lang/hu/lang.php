@@ -102,7 +102,7 @@ return [
         'remove' => 'A tételek sikeresen eltávolításra kerültek.'
     ],
     'statistics' => [
-        'no_photo' => 'Nincs fotó, nincs statisztika!',
+        'no_photo' => 'Statisztika megtekintéséhez előbb töltsön fel fotót!',
         'photos' => 'Fotó',
         'max' => 'Max.',
         'min' => 'Min.',

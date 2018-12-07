@@ -102,7 +102,7 @@ return [
         'remove' => 'Successfully removed those items.'
     ],
     'statistics' => [
-        'no_photo' => 'No photo, no statistics!',
+        'no_photo' => 'To see statistics, upload a photo first.',
         'photos' => 'Photos',
         'max' => 'Max',
         'min' => 'Min',
