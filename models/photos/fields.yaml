@@ -18,6 +18,11 @@ fields:
         span: auto
 
 tabs:
+
+    icons:
+        indikator.photography::lang.form.image: icon-picture-o
+        indikator.photography::lang.form.content: icon-file-text-o
+
     fields:
 
         image:
