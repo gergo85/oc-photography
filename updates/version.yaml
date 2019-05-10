@@ -25,3 +25,4 @@
 1.1.4:
     - Added sensor size option.
     - add_sensorsize_field_to_table.php
+1.1.5: Added permission to Dashboard widgets.

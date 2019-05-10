@@ -28,19 +28,19 @@ class Summary extends ReportWidgetBase
                 'validationMessage' => 'backend::lang.dashboard.widget_title_error'
             ],
             'photos' => [
-                'title'             => 'indikator.photography::lang.widget.show_photos',
-                'default'           => true,
-                'type'              => 'checkbox'
+                'title'   => 'indikator.photography::lang.widget.show_photos',
+                'default' => true,
+                'type'    => 'checkbox'
             ],
             'categories' => [
-                'title'             => 'indikator.photography::lang.widget.show_categories',
-                'default'           => true,
-                'type'              => 'checkbox'
+                'title'   => 'indikator.photography::lang.widget.show_categories',
+                'default' => true,
+                'type'    => 'checkbox'
             ],
             'equipment' => [
-                'title'             => 'indikator.photography::lang.widget.show_equipment',
-                'default'           => true,
-                'type'              => 'checkbox'
+                'title'   => 'indikator.photography::lang.widget.show_equipment',
+                'default' => true,
+                'type'    => 'checkbox'
             ]
         ];
     }

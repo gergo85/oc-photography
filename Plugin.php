@@ -62,8 +62,9 @@ class Plugin extends PluginBase
     {
         return [
             'Indikator\Photography\ReportWidgets\Summary' => [
-                'label'   => 'indikator.photography::lang.widget.summary',
-                'context' => 'dashboard'
+                'label'       => 'indikator.photography::lang.widget.summary',
+                'context'     => 'dashboard',
+                'permissions' => ['indikator.photography.statistics']
             ]
         ];
     }
@@ -92,7 +93,7 @@ class Plugin extends PluginBase
             'indikator.photography.statistics' => [
                 'tab'   => 'indikator.photography::lang.plugin.name',
                 'label' => 'indikator.photography::lang.permission.statistics',
-                'order' => 300,
+                'order' => 400,
                 'roles' => ['publisher']
             ]
         ];
