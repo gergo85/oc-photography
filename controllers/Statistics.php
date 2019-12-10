@@ -143,7 +143,7 @@ class Statistics extends Controller
         // Filesize
         $this->filesize['max'] = round($max / 1048576, 1);
         $this->filesize['min'] = round($min / 1048576, 1);
-        $this->filesize['avg'] = ($this->photos > 0) ? (round(($avg / $this->photos) / 1048576, 1).' MB') : 0;
+        $this->filesize['avg'] = ($this->photos > 0) ? (round(($avg / $this->photos) / 1048576, 1)) : 0;
 
         // Sorting
         arsort($this->model);
