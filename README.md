@@ -1,5 +1,5 @@
 # Photography plugin
-Manage your photos and photo equipment easily. The plugin shows the EXIF information of photos in the Backend.
+Manage your photos and photo equipments easily. For now it has got only back-end UI. this is a Back-end plugin only.
 
 ## Main features
 * Managing photos

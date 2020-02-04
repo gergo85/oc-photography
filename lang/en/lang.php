@@ -67,9 +67,11 @@ return [
         'org_price' => 'Original price',
         'type' => 'Type',
         'type_camera' => 'Camera',
-        'type_lens' => 'Lens',
+        'type_objective' => 'Objective',
+        'type_filter' => 'Filter',
         'type_flash' => 'Flash',
         'type_case' => 'Case',
+        'type_stand' => 'Stand',
         'type_other' => 'Other'
     ],
     'sensor_size' => [
@@ -78,7 +80,7 @@ return [
         'ff' => 'Full Frame',
         'apsh' => 'APS-C',
         'apsc' => 'APS-H',
-        '43' => '4/3',
+        'm43' => 'm4/3',
         '10' => '1"',
         '16' => '1/1.6"',
         '23' => '1/2.3"',

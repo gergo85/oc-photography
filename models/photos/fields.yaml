@@ -42,6 +42,22 @@ secondaryTabs:
             label: indikator.photography::lang.menu.categories
             type: relation
 
+        sensor_size:
+            label: indikator.photography::lang.form.sensor_size
+            type: dropdown
+            options:
+                none: indikator.photography::lang.sensor_size.none
+                MF: indikator.photography::lang.sensor_size.mf
+                FF: indikator.photography::lang.sensor_size.ff
+                APS-H: indikator.photography::lang.sensor_size.apsh
+                APS-C: indikator.photography::lang.sensor_size.apsc
+                m4/3: indikator.photography::lang.sensor_size.m43
+                1: indikator.photography::lang.sensor_size.10
+                1/1.6: indikator.photography::lang.sensor_size.16
+                1/2.3: indikator.photography::lang.sensor_size.23
+                other: indikator.photography::lang.sensor_size.other
+            default: none
+
         status:
             label: indikator.photography::lang.form.status
             required: true
@@ -61,22 +77,6 @@ secondaryTabs:
                 2: indikator.photography::lang.form.no
             default: 2
             span: auto
-
-        sensor_size:
-            label: indikator.photography::lang.form.sensor_size
-            type: dropdown
-            options:
-                none: indikator.photography::lang.sensor_size.none
-                MF: indikator.photography::lang.sensor_size.mf
-                FF: indikator.photography::lang.sensor_size.ff
-                APS-H: indikator.photography::lang.sensor_size.apsh
-                APS-C: indikator.photography::lang.sensor_size.apsc
-                4/3: indikator.photography::lang.sensor_size.43
-                1: indikator.photography::lang.sensor_size.10
-                1/1.6: indikator.photography::lang.sensor_size.16
-                1/2.3: indikator.photography::lang.sensor_size.23
-                other: indikator.photography::lang.sensor_size.other
-            default: none
 
         exif_model@update:
             label: indikator.photography::lang.form.exif_model

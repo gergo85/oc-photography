@@ -13,7 +13,7 @@ class Equipment extends Model
 
     public $rules = [
         'name'     => ['required', 'regex:/^[a-z0-9\/\:_\-\*\[\]\+\?\|]*$/i', 'unique:indikator_photography_equipment'],
-        'type'     => 'required|between:1,5|numeric',
+        'type'     => 'required|between:1,7|numeric',
         'status'   => 'required|between:1,2|numeric',
         'featured' => 'required|between:1,2|numeric'
     ];

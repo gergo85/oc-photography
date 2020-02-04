@@ -51,10 +51,12 @@ secondaryTabs:
             type: dropdown
             options:
                 1: indikator.photography::lang.form.type_camera
-                2: indikator.photography::lang.form.type_lens
-                3: indikator.photography::lang.form.type_flash
-                4: indikator.photography::lang.form.type_case
-                5: indikator.photography::lang.form.type_other
+                2: indikator.photography::lang.form.type_objective
+                3: indikator.photography::lang.form.type_filter
+                4: indikator.photography::lang.form.type_flash
+                5: indikator.photography::lang.form.type_case
+                6: indikator.photography::lang.form.type_stand
+                7: indikator.photography::lang.form.type_other
             default: 1
 
         comment:

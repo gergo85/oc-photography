@@ -67,9 +67,11 @@ return [
         'org_price' => 'Eredeti ár',
         'type' => 'Típus',
         'type_camera' => 'Kamera',
-        'type_lens' => 'Objektív',
+        'type_objective' => 'Objektív',
+        'type_filter' => 'Szűrő',
         'type_flash' => 'Vaku',
         'type_case' => 'Táska',
+        'type_stand' => 'Állvány',
         'type_other' => 'Egyéb'
     ],
     'sensor_size' => [
@@ -78,7 +80,7 @@ return [
         'ff' => 'Full Frame',
         'apsh' => 'APS-C',
         'apsc' => 'APS-H',
-        '43' => '4/3',
+        'm43' => 'm4/3',
         '10' => '1"',
         '16' => '1/1.6"',
         '23' => '1/2.3"',

@@ -25,10 +25,12 @@ scopes:
         conditions: type in (:filtered)
         options:
             1: 'Camera'
-            2: 'Lens'
-            3: 'Flash'
-            4: 'Case'
-            5: 'Other'
+            2: 'Objective'
+            3: 'Filter'
+            4: 'Flash'
+            5: 'Case'
+            6: 'Stand'
+            7: 'Other'
 
     created_date:
         label: indikator.photography::lang.form.created
