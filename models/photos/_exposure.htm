@@ -2,6 +2,6 @@
 
 echo $record->exif_exposure;
 
-if (substr_count($record->exif_exposure, '/') == 0) {
+if ($record->exif_exposure != '-' && substr_count($record->exif_exposure, '/') == 0) {
     echo '"';
 }

@@ -77,15 +77,36 @@ class Statistics extends Controller
     public function getStat()
     {
         $result = [];
-        $min = $max = $avg = 0;
+        $min    = $max = $avg = 0;
         $items  = Photos::get()->all();
 
         foreach ($items as $item) {
-            // Simple increase
+            // Photos
             $this->photos++;
-            $this->ratio[$item['exif_ratio']]++;
-            $this->orientation[$item['exif_orientation']]++;
-            $this->flash[$item['exif_flash']]++;
+
+            // Ratio
+            if (array_key_exists($item['exif_ratio'], $this->ratio)) {
+                $this->ratio[$item['exif_ratio']]++;
+            }
+            else {
+                $this->ratio[$item['exif_ratio']] = 1;
+            }
+
+            // Orientation
+            if (array_key_exists($item['exif_orientation'], $this->orientation)) {
+                $this->orientation[$item['exif_orientation']]++;
+            }
+            else {
+                $this->orientation[$item['exif_orientation']] = 1;
+            }
+
+            // Flash
+            if (array_key_exists($item['exif_flash'], $this->flash)) {
+                $this->flash[$item['exif_flash']]++;
+            }
+            else {
+                $this->flash[$item['exif_flash']] = 1;
+            }
 
             // Filesize
             if ($item['filesize'] > $max) {
@@ -121,7 +142,7 @@ class Statistics extends Controller
             }
 
             // Exposure
-            if (substr_count($item['exif_exposure'], '/') == 0) {
+            if ($item['exif_exposure'] != '-' && substr_count($item['exif_exposure'], '/') == 0) {
                 $item['exif_exposure'] .= '"';
             }
             if (array_key_exists($item['exif_exposure'], $this->exposure)) {
