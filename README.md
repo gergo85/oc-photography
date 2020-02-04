@@ -1,5 +1,5 @@
 # Photography plugin
-Manage your photos and photo equipments easily. For now it has got only back-end UI. this is a Back-end plugin only.
+Manage your photos and photo equipments easily. For now it has got only back-end UI.
 
 ## Main features
 * Managing photos
