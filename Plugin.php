@@ -26,7 +26,7 @@ class Plugin extends PluginBase
                 'icon'        => 'icon-camera',
                 'iconSvg'     => 'plugins/indikator/photography/assets/images/photography-icon.svg',
                 'permissions' => ['indikator.photography.*'],
-                'order'       => 500,
+                'order'       => 360,
 
                 'sideMenu' => [
                     'photos' => [
