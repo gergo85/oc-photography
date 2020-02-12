@@ -9,17 +9,20 @@ fields:
         required: true
         attributes:
            autofocus: ''
-        span: auto
+        span: storm
+        cssClass: col-lg-6
 
     slug:
         label: indikator.photography::lang.form.slug
         required: true
         preset: name
-        span: auto
+        span: storm
+        cssClass: col-lg-6
 
 tabs:
 
     icons:
+
         indikator.photography::lang.form.image: icon-picture-o
         indikator.photography::lang.form.content: icon-file-text-o
 
@@ -29,18 +32,25 @@ tabs:
             tab: indikator.photography::lang.form.image
             type: mediafinder
             mode: image
+            span: storm
+            cssClass: col-xs-12
 
         content:
             tab: indikator.photography::lang.form.content
             type: richeditor
             size: giant
+            span: storm
+            cssClass: col-xs-12
 
 secondaryTabs:
+
     fields:
 
         category:
             label: indikator.photography::lang.menu.categories
             type: relation
+            span: storm
+            cssClass: col-xs-12
 
         sensor_size:
             label: indikator.photography::lang.form.sensor_size
@@ -57,6 +67,8 @@ secondaryTabs:
                 1/2.3: indikator.photography::lang.sensor_size.23
                 other: indikator.photography::lang.sensor_size.other
             default: none
+            span: storm
+            cssClass: col-xs-12
 
         status:
             label: indikator.photography::lang.form.status
@@ -66,7 +78,8 @@ secondaryTabs:
                 1: indikator.photography::lang.button.active
                 2: indikator.photography::lang.button.inactive
             default: 1
-            span: auto
+            span: storm
+            cssClass: col-xs-6
 
         featured:
             label: indikator.photography::lang.form.featured
@@ -76,52 +89,65 @@ secondaryTabs:
                 1: indikator.photography::lang.form.yes
                 2: indikator.photography::lang.form.no
             default: 2
-            span: auto
+            span: storm
+            cssClass: col-xs-6
 
         exif_model@update:
             label: indikator.photography::lang.form.exif_model
             disabled: true
+            span: storm
+            cssClass: col-xs-12
 
         exif_date@update:
             label: indikator.photography::lang.form.exif_date
             disabled: true
+            span: storm
+            cssClass: col-xs-12
 
         exif_aperture@update:
             label: indikator.photography::lang.form.exif_aperture
             disabled: true
-            span: auto
+            span: storm
+            cssClass: col-xs-6
 
         exif_exposure@update:
             label: indikator.photography::lang.form.exif_exposure
             disabled: true
-            span: auto
+            span: storm
+            cssClass: col-xs-6
 
         exif_focal@update:
             label: indikator.photography::lang.form.exif_focal
             disabled: true
-            span: auto
+            span: storm
+            cssClass: col-xs-6
 
         exif_iso@update:
             label: indikator.photography::lang.form.exif_iso
             disabled: true
-            span: auto
+            span: storm
+            cssClass: col-xs-6
 
         exif_flash@update:
             label: indikator.photography::lang.form.exif_flash
             disabled: true
-            span: auto
+            span: storm
+            cssClass: col-xs-6
 
         exif_ratio@update:
             label: indikator.photography::lang.form.exif_ratio
             disabled: true
-            span: auto
+            span: storm
+            cssClass: col-xs-6
 
         exif_width@update:
             label: indikator.photography::lang.form.exif_width
             disabled: true
-            span: auto
+            span: storm
+            cssClass: col-xs-6
 
         exif_height@update:
             label: indikator.photography::lang.form.exif_height
             disabled: true
-            span: auto
+            span: storm
+            cssClass: col-xs-6

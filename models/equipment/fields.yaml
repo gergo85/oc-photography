@@ -8,42 +8,53 @@ fields:
         label: indikator.photography::lang.form.brand
         attributes:
            autofocus: ''
-        span: auto
+        span: storm
+        cssClass: col-lg-6
 
     name:
         label: indikator.photography::lang.form.name
         required: true
-        span: auto
+        span: storm
+        cssClass: col-lg-6
 
     purchased:
         label: indikator.photography::lang.form.purchased
-        span: auto
+        span: storm
+        cssClass: col-lg-6
 
     manual:
         label: indikator.photography::lang.form.manual
         type: mediafinder
-        span: auto
+        span: storm
+        cssClass: col-lg-6
 
     content:
         label: indikator.photography::lang.form.content
         type: richeditor
         size: large
+        span: storm
+        cssClass: col-xs-12
 
 secondaryTabs:
+
     fields:
 
         image:
             label: indikator.photography::lang.form.image
             type: mediafinder
             mode: image
+            span: storm
+            cssClass: col-xs-12
 
         price:
             label: indikator.photography::lang.form.price
-            span: auto
+            span: storm
+            cssClass: col-xs-6
 
         org_price:
             label: indikator.photography::lang.form.org_price
-            span: auto
+            span: storm
+            cssClass: col-xs-6
 
         type:
             label: indikator.photography::lang.form.type
@@ -58,11 +69,15 @@ secondaryTabs:
                 6: indikator.photography::lang.form.type_stand
                 7: indikator.photography::lang.form.type_other
             default: 1
+            span: storm
+            cssClass: col-xs-12
 
         comment:
             label: indikator.photography::lang.form.comment
             type: textarea
             size: tiny
+            span: storm
+            cssClass: col-xs-12
 
         status:
             label: indikator.photography::lang.form.status
@@ -72,7 +87,8 @@ secondaryTabs:
                 1: indikator.photography::lang.button.active
                 2: indikator.photography::lang.button.inactive
             default: 1
-            span: auto
+            span: storm
+            cssClass: col-xs-6
 
         featured:
             label: indikator.photography::lang.form.featured
@@ -82,4 +98,5 @@ secondaryTabs:
                 1: indikator.photography::lang.form.yes
                 2: indikator.photography::lang.form.no
             default: 2
-            span: auto
+            span: storm
+            cssClass: col-xs-6
