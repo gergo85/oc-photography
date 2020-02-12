@@ -33,25 +33,29 @@ class Plugin extends PluginBase
                         'label'       => 'indikator.photography::lang.menu.photos',
                         'url'         => Backend::url('indikator/photography/photos'),
                         'icon'        => 'icon-picture-o',
-                        'permissions' => ['indikator.photography.photos']
+                        'permissions' => ['indikator.photography.photos'],
+                        'order'       => 100
                     ],
                     'categories' => [
                         'label'       => 'indikator.photography::lang.menu.categories',
                         'url'         => Backend::url('indikator/photography/categories'),
                         'icon'        => 'icon-tags',
-                        'permissions' => ['indikator.photography.categories']
+                        'permissions' => ['indikator.photography.categories'],
+                        'order'       => 200
                     ],
                     'equipment' => [
                         'label'       => 'indikator.photography::lang.menu.equipment',
                         'url'         => Backend::url('indikator/photography/equipment'),
                         'icon'        => 'icon-suitcase',
-                        'permissions' => ['indikator.photography.equipment']
+                        'permissions' => ['indikator.photography.equipment'],
+                        'order'       => 300
                     ],
                     'statistics' => [
                         'label'       => 'indikator.photography::lang.menu.statistics',
                         'url'         => Backend::url('indikator/photography/statistics'),
                         'icon'        => 'icon-pie-chart',
-                        'permissions' => ['indikator.photography.statistics']
+                        'permissions' => ['indikator.photography.statistics'],
+                        'order'       => 400
                     ],
                 ]
             ]
