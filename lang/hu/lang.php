@@ -88,7 +88,7 @@ return [
     ],
     'button' => [
         'activate' => 'Aktíválás',
-        'deactivate' => 'Deaktiválás',
+        'inactivate' => 'Inaktiválás',
         'active' => 'Aktív',
         'inactive' => 'Inaktív',
         'remove' => 'Eltávolítás',
@@ -99,7 +99,7 @@ return [
     ],
     'flash' => [
         'activate' => 'A tételek sikeresen aktiválva lettek.',
-        'deactivate' => 'A tételek sikeresen deaktiválva lettek.',
+        'inactivate' => 'A tételek sikeresen inaktiválva lettek.',
         'delete' => 'Valóban törölni akarja a tételeket?',
         'remove' => 'A tételek sikeresen eltávolításra kerültek.'
     ],
