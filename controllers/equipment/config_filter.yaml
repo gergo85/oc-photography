@@ -4,6 +4,19 @@
 
 scopes:
 
+    type:
+        label: indikator.photography::lang.form.type
+        type: group
+        conditions: type in (:filtered)
+        options:
+            1: indikator.photography::lang.form.type_camera
+            2: indikator.photography::lang.form.type_objective
+            3: indikator.photography::lang.form.type_filter
+            4: indikator.photography::lang.form.type_flash
+            5: indikator.photography::lang.form.type_case
+            6: indikator.photography::lang.form.type_stand
+            7: indikator.photography::lang.form.type_other
+
     featured:
         label: indikator.photography::lang.form.featured
         type: checkbox
@@ -18,19 +31,6 @@ scopes:
         label: indikator.photography::lang.button.inactive
         type: checkbox
         conditions: status = 2
-
-    type:
-        label: indikator.photography::lang.form.type
-        type: group
-        conditions: type in (:filtered)
-        options:
-            1: 'Camera'
-            2: 'Objective'
-            3: 'Filter'
-            4: 'Flash'
-            5: 'Case'
-            6: 'Stand'
-            7: 'Other'
 
     created_date:
         label: indikator.photography::lang.form.created

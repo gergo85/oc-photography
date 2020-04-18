@@ -3,6 +3,11 @@
 use System\Classes\PluginBase;
 use Backend;
 use Lang;
+use Indikator\Photography\Models\Photos as PhotosModel;
+use Indikator\Photography\Controllers\Photos as PhotosController;
+use Indikator\Photography\Models\Categories;
+use Indikator\Photography\Models\Equipment as EquipmentModel;
+use Indikator\Photography\Controllers\Equipment as EquipmentController;
 
 class Plugin extends PluginBase
 {
@@ -133,5 +138,60 @@ class Plugin extends PluginBase
                 return '<span class="oc-icon-circle '.$class[$value].'">'.Lang::get('backend::lang.list.column_switch_'.$text[$value]).'</span>';
             }
         ];
+    }
+
+    public function boot()
+    {
+        PhotosController::extendFormFields(function($form, $model, $context)
+        {
+            if (!$model instanceof PhotosModel || Categories::count() > 0) {
+                return;
+            }
+
+            $form->removeField('category');
+        });
+
+        PhotosController::extendListColumns(function($list, $model)
+        {
+            if (!$model instanceof PhotosModel || Categories::count() > 0) {
+                return;
+            }
+
+            $list->removeColumn('category');
+        });
+
+        PhotosController::extendListFilterScopes(function($filter)
+        {
+            if (Categories::count() == 0) {
+                $filter->removeScope('category');
+            }
+        });
+
+        EquipmentController::extendListColumns(function($list, $model)
+        {
+            if (!$model instanceof EquipmentModel) {
+                return;
+            }
+
+            if (EquipmentModel::where('brand', '!=', '')->count() == 0) {
+                $list->removeColumn('brand');
+            }
+
+            if (EquipmentModel::where('purchased', '!=', '')->count() == 0) {
+                $list->removeColumn('purchased');
+            }
+
+            if (EquipmentModel::where('price', '!=', '')->count() == 0) {
+                $list->removeColumn('price');
+            }
+
+            if (EquipmentModel::where('org_price', '!=', '')->count() == 0) {
+                $list->removeColumn('org_price');
+            }
+
+            if (EquipmentModel::where('comment', '!=', '')->count() == 0) {
+                $list->removeColumn('comment');
+            }
+        });
     }
 }

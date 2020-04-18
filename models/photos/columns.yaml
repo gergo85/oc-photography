@@ -25,6 +25,13 @@ columns:
         searchable: true
         invisible: true
 
+    category:
+        label: indikator.photography::lang.menu.categories
+        searchable: true
+        sortable: false
+        type: partial
+        path: ~/plugins/indikator/photography/models/photos/_category.htm
+
     exif_date:
         label: indikator.photography::lang.form.exif_date
         searchable: true

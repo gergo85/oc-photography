@@ -30,3 +30,4 @@
 1.1.7:
     - Minor UI and database improvements.
     - change_varchar_length.php
+1.1.8: Improved the list filters.

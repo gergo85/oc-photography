@@ -1,0 +1,20 @@
+<?php
+
+$count = count($record->category);
+
+if ($count == 0) {
+    echo '';
+}
+
+else {
+    $index = 0;
+
+    foreach ($record->category as $item) {
+        $index++;
+        echo $item->name;
+
+        if ($index < $count) {
+            echo ', ';
+        }
+    }
+}
