@@ -1,0 +1,11 @@
+{
+    "name": "indikator/photography-plugin",
+    "type": "october-plugin",
+    "description": "Manage your photos and photo equipments easily. For now it has got only back-end UI.",
+    "homepage": "https://octobercms.com/plugin/indikator-photography",
+    "keywords": ["october", "octobercms", "photography"],
+    "license": "MIT",
+    "require": {
+        "composer/installers": "~1.0"
+    }
+}
